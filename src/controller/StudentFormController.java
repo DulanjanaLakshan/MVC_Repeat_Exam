@@ -1,12 +1,16 @@
 package controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class StudentFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class StudentFormController implements Initializable {
     public TextField txtID;
     public TextField txtName;
     public TextField txtEmail;
@@ -24,6 +28,15 @@ public class StudentFormController {
     public TableColumn colNic;
     public TableColumn colContact;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    private void loadAllCustomer(){
+
+    }
+
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
     }
@@ -35,4 +48,5 @@ public class StudentFormController {
     public void btnDeleteOnAction(ActionEvent actionEvent) {
 
     }
+
 }
