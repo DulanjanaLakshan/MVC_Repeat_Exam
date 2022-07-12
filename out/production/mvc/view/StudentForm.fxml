@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentFormController">
    <children>
-      <Label layoutX="367.0" layoutY="20.0" text="Sutudent Manage Form">
+      <Label layoutX="384.0" layoutY="20.0" text="Student Manage Form">
          <font>
             <Font name="Consolas Bold" size="42.0" />
          </font>
@@ -26,38 +26,38 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="204.0" layoutY="134.0" prefHeight="31.0" prefWidth="322.0" promptText="Enter Student Name">
+      <TextField fx:id="txtName" layoutX="314.0" layoutY="136.0" prefHeight="31.0" prefWidth="301.0" promptText="Enter Student Name">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label layoutX="204.0" layoutY="101.0" text="Name">
+      <Label layoutX="314.0" layoutY="103.0" text="Name">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEmail" layoutX="552.0" layoutY="134.0" prefHeight="31.0" prefWidth="322.0" promptText="Enter Student Email">
+      <TextField fx:id="txtEmail" layoutX="641.0" layoutY="135.0" prefHeight="31.0" prefWidth="271.0" promptText="Enter Student Email">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label layoutX="552.0" layoutY="101.0" text="Email">
+      <Label layoutX="641.0" layoutY="102.0" text="Email">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtContact" layoutX="904.0" layoutY="134.0" prefHeight="31.0" prefWidth="255.0" promptText="Enter Student Contact">
+      <TextField fx:id="txtContact" layoutX="946.0" layoutY="134.0" prefHeight="31.0" prefWidth="223.0" promptText="Enter Student Contact">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label layoutX="904.0" layoutY="101.0" text="Contact">
+      <Label layoutX="946.0" layoutY="101.0" text="Contact">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Separator layoutX="6.0" layoutY="292.0" prefHeight="6.0" prefWidth="1188.0" />
-      <TextField fx:id="txtAddress" layoutX="45.0" layoutY="221.0" prefHeight="31.0" prefWidth="402.0" promptText="Enter Student Address">
+      <TextField fx:id="txtAddress" layoutX="45.0" layoutY="221.0" prefHeight="31.0" prefWidth="377.0" promptText="Enter Student Address">
          <font>
             <Font size="15.0" />
          </font>
@@ -67,22 +67,22 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNIC" layoutX="476.0" layoutY="222.0" prefHeight="31.0" prefWidth="255.0" promptText="Enter Student Nic">
+      <TextField fx:id="txtNIC" layoutX="448.0" layoutY="222.0" prefHeight="31.0" prefWidth="361.0" promptText="Enter Student Nic">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label layoutX="476.0" layoutY="189.0" text="NIC">
+      <Label layoutX="448.0" layoutY="189.0" text="NIC">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnSaveOnAction" layoutX="802.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: blue;" text="Save" textFill="WHITE">
+      <Button fx:id="btnSaveOnAction" layoutX="835.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: blue;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnUpdateOnAction" layoutX="930.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
+      <Button fx:id="btnUpdateOnAction" layoutX="946.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: green;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -103,5 +103,10 @@
         </columns>
       </TableView>
       <Separator layoutX="498.0" layoutY="69.0" prefWidth="200.0" style="-fx-background-color: black;" />
+      <Button fx:id="btnSearchOnAction" layoutX="190.0" layoutY="126.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="39.0" prefWidth="102.0" style="-fx-background-color: orange;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

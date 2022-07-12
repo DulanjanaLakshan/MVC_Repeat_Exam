@@ -35,6 +35,7 @@ public class StudentFormController implements Initializable {
     public TableColumn colEmail;
     public TableColumn colNic;
     public TableColumn colContact;
+    public Button btnSearchOnAction;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -131,8 +132,12 @@ public class StudentFormController implements Initializable {
             int update = preparedStatement.executeUpdate();
             if (update > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Updated!", ButtonType.OK).show();
+                loadAllStudent();
+                clearTextFelled();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again!", ButtonType.OK).show();
+                loadAllStudent();
+                clearTextFelled();
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -172,4 +177,25 @@ public class StudentFormController implements Initializable {
         txtNIC.clear();
     }
 
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+
+        try {
+            Connection connection= DBConnection.getDbConnection().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Student WHERE student_id=?");
+            preparedStatement.setObject(1,txtID.getText());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                txtName.setText(resultSet.getString(2));
+                txtEmail.setText(resultSet.getString(3));
+                txtContact.setText(resultSet.getString(4));
+                txtAddress.setText(resultSet.getString(5));
+                txtNIC.setText(resultSet.getString(6));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
