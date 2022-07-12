@@ -118,7 +118,27 @@ public class StudentFormController implements Initializable {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        Student student = new Student(txtID.getText(), txtName.getText(), txtEmail.getText(), txtContact.getText(), txtAddress.getText(), txtNIC.getText());
 
+        try {
+            PreparedStatement preparedStatement = DBConnection.getDbConnection().getConnection().prepareStatement("UPDATE Student SET student_name=?,email=?,contact=?,address=?,nic=? WHERE student_id=?");
+            preparedStatement.setObject(1, student.getName());
+            preparedStatement.setObject(2, student.getEmail());
+            preparedStatement.setObject(3, student.getContact());
+            preparedStatement.setObject(4, student.getAddress());
+            preparedStatement.setObject(5, student.getNic());
+            preparedStatement.setObject(6, student.getId());
+            int update = preparedStatement.executeUpdate();
+            if (update > 0) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated!", ButtonType.OK).show();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Try Again!", ButtonType.OK).show();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
