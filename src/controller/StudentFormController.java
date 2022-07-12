@@ -102,11 +102,11 @@ public class StudentFormController implements Initializable {
             if (add > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved!", ButtonType.OK).show();
                 clearTextFelled();
-                tblStudent.refresh();
+                loadAllStudent();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again!", ButtonType.OK).show();
                 clearTextFelled();
-                tblStudent.refresh();
+                loadAllStudent();
             }
 
         } catch (SQLException throwables) {
@@ -122,7 +122,25 @@ public class StudentFormController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        try {
+            PreparedStatement preparedStatement = DBConnection.getDbConnection().getConnection().prepareStatement("DELETE FROM Student WHERE student_id=?");
+            preparedStatement.setObject(1, txtID.getText());
+            int delete = preparedStatement.executeUpdate();
 
+            if (delete > 0) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Supplier Delete Successfully.....!", ButtonType.OK).show();
+                loadAllStudent();
+                clearTextFelled();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Supplier Delete Unsuccessfully.....", ButtonType.OK).show();
+                loadAllStudent();
+                clearTextFelled();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void clearTextFelled() {
