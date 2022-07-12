@@ -102,14 +102,11 @@ public class StudentFormController implements Initializable {
             int add = preparedStatement.executeUpdate();
             if (add > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved!", ButtonType.OK).show();
-                clearTextFelled();
-                loadAllStudent();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again!", ButtonType.OK).show();
-                clearTextFelled();
-                loadAllStudent();
             }
-
+            clearTextFelled();
+            loadAllStudent();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -132,13 +129,11 @@ public class StudentFormController implements Initializable {
             int update = preparedStatement.executeUpdate();
             if (update > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Updated!", ButtonType.OK).show();
-                loadAllStudent();
-                clearTextFelled();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Try Again!", ButtonType.OK).show();
-                loadAllStudent();
-                clearTextFelled();
             }
+            clearTextFelled();
+            loadAllStudent();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -154,13 +149,11 @@ public class StudentFormController implements Initializable {
 
             if (delete > 0) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Supplier Delete Successfully.....!", ButtonType.OK).show();
-                loadAllStudent();
-                clearTextFelled();
             } else {
                 new Alert(Alert.AlertType.WARNING, "Supplier Delete Unsuccessfully.....", ButtonType.OK).show();
-                loadAllStudent();
-                clearTextFelled();
             }
+            clearTextFelled();
+            loadAllStudent();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -180,9 +173,9 @@ public class StudentFormController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) {
 
         try {
-            Connection connection= DBConnection.getDbConnection().getConnection();
+            Connection connection = DBConnection.getDbConnection().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Student WHERE student_id=?");
-            preparedStatement.setObject(1,txtID.getText());
+            preparedStatement.setObject(1, txtID.getText());
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
